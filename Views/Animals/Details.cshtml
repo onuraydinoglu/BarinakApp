@@ -1,0 +1,72 @@
+@model Animal
+
+<div class="row mt-4">
+    <div class="col-lg-2 mt-5">
+        <vc:breeds-menu></vc:breeds-menu>
+    </div>
+
+    <div class="col-lg-10">
+        <div class="p-4">
+            <h1 class="h4 mb-4 text-center">@Model.AnimalName</h1>
+
+            <div class="card mb-3">
+                <div class="row g-0">
+                    <div class="col-md-4">
+                        <img src="~/img/@Model.Image" class="card-img-top" alt="...">
+                    </div>
+                    <div class="col-md-8 d-flex flex-column">
+                        <div class="card-body flex-grow-1">
+                            <h5 class="card-title">@Model.AnimalName</h5>
+                            <p class="card-text">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Asperiores
+                                saepe sequi consequatur iure et quis facilis porro, rerum totam optio autem dolorem
+                                velit odit aperiam aut soluta! Quasi, repellat tempore?</p>
+                            <p>
+                                Irkı: Golden
+                            </p>
+                            <p>
+                                Yaşı: @Model.Age
+                            </p>
+                        </div>
+                        <div class="d-flex justify-content-end mt-auto" style="margin-right: 10px;">
+                            @foreach (var breed in Model.Breeds)
+                            {
+                                <a href="/animals/breed/@breed.Url"
+                                    class="badge bg-@breed.Color bg-opacity-5 text-white mb-2 fw-bold margin-right: 5px;">@breed.BreedName</a>
+                            }
+
+                        </div>
+                        <div class="card-footer d-flex justify-content-end mt-auto">
+                            <small class="text-body-secondary">Barınağa Geliş Tarihi:
+                                @Model.PublishedOn.ToShortDateString()</small>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+            <div class="bg-white mt-4">
+                <div class="card border-0">
+                    <div class="card-header pb-0">
+                        <h4 class="text-center">@Model.Comments.Count() adet yorum var.</h4>
+                    </div>
+                    <div class="card-body">
+                        @foreach (var comment in Model.Comments)
+                        {
+                            <div class="my-4 d-flex align-items-center">
+                                <img src="/img/@comment.User.Image" alt="" class="avatar rounded-circle float-start me-3">
+                                <div class="flex-grow-1">
+                                    <h6>@comment.User.UserName</h6>
+                                    <p>@comment.Text</p>
+                                </div>
+                                <div class="text-end">
+                                    <span>@comment.PublishedOn.ToShortDateString()</span>
+                                </div>
+                            </div>
+                            <hr />
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

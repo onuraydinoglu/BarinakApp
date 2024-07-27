@@ -1,0 +1,22 @@
+body{
+    background-color: #eff2f6;
+}
+
+a{
+    text-decoration: none;
+}
+
+.sidebar {
+    width: 100%;
+    background-color: white;
+    color: #343a40;    
+    padding: 20px;
+}
+.sidebar a {
+    color: #343a40;
+}
+
+.avatar{
+    width: 100px;
+    height: 100px;
+}

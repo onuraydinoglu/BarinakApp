@@ -1,0 +1,64 @@
+@model AnimalViewModel
+
+<div class="row mt-4">
+    <div class="col-lg-2 mt-5">
+        <vc:breeds-menu></vc:breeds-menu>
+    </div>
+
+    <div class="col-lg-10">
+        <div class="p-4">
+            <h1 class="h4 mb-4 text-center">Tüm Hayvanlar</h1>
+            <div class="row row-cols-1 row-cols-md-4 g-4">
+                @foreach (var animal in Model.Animals)
+                {
+                    <div class="col">
+                        <div class="card h-100 shadow">
+                            <img src="~/img/@animal.Image" class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <a href="/animals/@animal.Url" style="color: black;">
+                                    <h5 class="card-title">@animal.AnimalName</h5>
+                                </a>
+                                <p class="card-text">@animal.Content</p>
+                            </div>
+                            <div class="card-footer d-flex justify-content-end">
+                                <a href="/animals/breed/@animal?.Breeds.FirstOrDefault()?.Url"
+                                    class="badge bg-primary bg-opacity-5 text-white mb-2 fw-bold">
+                                    @animal?.Breeds.FirstOrDefault()?.BreedName
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+
+            <nav class="mt-4">
+                <ul class="pagination justify-content-center">
+                    <li class="page-item">
+                        <a href="/" class="page-link">
+                            <i class="bi bi-chevron-double-left"></i>
+                        </a>
+                    </li>
+                    <li class="page-item">
+                        <a href="/" class="page-link">
+                            <i class="bi bi-chevron-compact-left">
+                            </i>
+                        </a>
+                    </li>
+                    <li class="page-item"><a href="/" class="page-link">1</a></li>
+                    <li class="page-item"><a href="/" class="page-link">2</a></li>
+                    <li class="page-item"><a href="/" class="page-link">3</a></li>
+                    <li class="page-item">
+                        <a href="/" class="page-link">
+                            <i class="bi bi-chevron-compact-right"></i>
+                        </a>
+                    </li>
+                    <li class="page-item">
+                        <a href="/" class="page-link">
+                            <i class="bi bi-chevron-double-right"></i>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+</div>

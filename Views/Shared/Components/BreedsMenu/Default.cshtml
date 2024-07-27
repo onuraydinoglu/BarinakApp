@@ -1,0 +1,12 @@
+@model List<Breed>
+
+<div class="d-flex">
+    <div class="sidebar">
+        <ul class="list-group list-group-flush">
+            @foreach (var breed in Model)
+            {
+                <li class="list-group-item"><a href="/animals/breed/@breed.Url">@breed.BreedName</a></li>
+            }
+        </ul>
+    </div>
+</div>
