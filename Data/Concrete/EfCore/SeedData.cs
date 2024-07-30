@@ -49,7 +49,7 @@ namespace Barinak.Data.Concrete.EfCore
                             IsActive = true,
                             PublishedOn = DateTime.Now.AddDays(-15),
                             Breeds = new List<Breed> { context.Breeds.First(b => b.BreedName == "Dog") },
-                            Image = "1.png",
+                            Image = "ko1.png",
                             UserId = 1,
                             Comments = new List<Comment>{
                                 new Comment {Text = "Lorem Ipsum is simply dummy text of the printing and typesetting industry. ", PublishedOn = new DateTime(),UserId=1},
@@ -65,7 +65,7 @@ namespace Barinak.Data.Concrete.EfCore
                             IsActive = true,
                             PublishedOn = DateTime.Now.AddDays(-10),
                             Breeds = new List<Breed> { context.Breeds.First(b => b.BreedName == "Cat") },
-                            Image = "2.png",
+                            Image = "ke1.png",
                             UserId = 2
                         },
                         new Animal
@@ -77,7 +77,7 @@ namespace Barinak.Data.Concrete.EfCore
                             IsActive = true,
                             PublishedOn = DateTime.Now.AddDays(-5),
                             Breeds = new List<Breed> { context.Breeds.First(b => b.BreedName == "Bird") },
-                            Image = "3.png",
+                            Image = "ku1.png",
                             UserId = 1
                         },
                         new Animal
@@ -89,19 +89,19 @@ namespace Barinak.Data.Concrete.EfCore
                             IsActive = true,
                             PublishedOn = DateTime.Now.AddDays(-5),
                             Breeds = new List<Breed> { context.Breeds.First(b => b.BreedName == "Fish") },
-                            Image = "4.png",
+                            Image = "ba1.png",
                             UserId = 1
                         },
                         new Animal
                         {
-                            AnimalName = "Buddy",
+                            AnimalName = "Max",
                             Content = "A friendly and approachable name, perfect for man's  ...",
                             Age = 3,
-                            Url = "buddy",
+                            Url = "max",
                             IsActive = true,
                             PublishedOn = DateTime.Now.AddDays(-15),
                             Breeds = new List<Breed> { context.Breeds.First(b => b.BreedName == "Dog") },
-                            Image = "1.png",
+                            Image = "ko2.png",
                             UserId = 1,
                             Comments = new List<Comment>{
                                 new Comment {Text = "Lorem Ipsum is simply dummy text of the printing and typesetting industry. ", PublishedOn = new DateTime(),UserId=1},
@@ -110,38 +110,38 @@ namespace Barinak.Data.Concrete.EfCore
                         },
                         new Animal
                         {
-                            AnimalName = "Whiskers",
+                            AnimalName = "Oliver",
                             Content = "This name highlights the prominent and ...",
                             Age = 2,
-                            Url = "whiskers",
+                            Url = "oliver",
                             IsActive = true,
                             PublishedOn = DateTime.Now.AddDays(-10),
                             Breeds = new List<Breed> { context.Breeds.First(b => b.BreedName == "Cat") },
-                            Image = "2.png",
+                            Image = "ke2.png",
                             UserId = 2
                         },
                         new Animal
                         {
-                            AnimalName = "Tweety",
+                            AnimalName = "Rio",
                             Content = "Inspired by the cheerful and melodic sounds birds ...",
                             Age = 2,
-                            Url = "tweety",
+                            Url = "rio",
                             IsActive = true,
                             PublishedOn = DateTime.Now.AddDays(-5),
                             Breeds = new List<Breed> { context.Breeds.First(b => b.BreedName == "Bird") },
-                            Image = "3.png",
+                            Image = "ku2.png",
                             UserId = 1
                         },
                         new Animal
                         {
-                            AnimalName = "Bubbles",
+                            AnimalName = "Finley",
                             Content = "Reflecting the playful bubbles fish create as ...",
                             Age = 1,
-                            Url = "bubbles",
+                            Url = "finley",
                             IsActive = true,
                             PublishedOn = DateTime.Now.AddDays(-5),
                             Breeds = new List<Breed> { context.Breeds.First(b => b.BreedName == "Fish") },
-                            Image = "4.png",
+                            Image = "ba2.png",
                             UserId = 1
                         }
                     );

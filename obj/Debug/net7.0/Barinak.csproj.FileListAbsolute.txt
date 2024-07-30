@@ -65,3 +65,4 @@ C:\Users\onura\Desktop\Proje\Barinak\obj\Debug\net7.0\Barinak.RazorAssemblyInfo.
 C:\Users\onura\Desktop\Proje\Barinak\obj\Debug\net7.0\Barinak.RazorAssemblyInfo.cs
 C:\Users\onura\Desktop\Proje\Barinak\bin\Debug\net7.0\libman.json
 C:\Users\onura\Desktop\Proje\Barinak\bin\Debug\net7.0\Barinak.staticwebassets.runtime.json
+C:\Users\onura\Desktop\Proje\Barinak\obj\Debug\net7.0\Barinak.sourcelink.json

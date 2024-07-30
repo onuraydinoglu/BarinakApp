@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Barinak")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+1c307d282691ae9b4b71833712ec826ccd94d9bc")]
 [assembly: System.Reflection.AssemblyProductAttribute("Barinak")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Barinak")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

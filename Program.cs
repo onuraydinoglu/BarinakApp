@@ -24,7 +24,7 @@ SeedData.TestVerileriniDoldur(app);
 
 app.MapControllerRoute(
     name: "animals_details",
-    pattern: "animals/{url}",
+    pattern: "animals/details/{url}",
     defaults: new { controller = "Animals", action = "Details" }
 );
 

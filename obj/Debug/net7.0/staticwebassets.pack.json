@@ -9,24 +9,44 @@
       "PackagePath": "staticwebassets\\img\\1.jpg"
     },
     {
-      "Id": "C:\\Users\\onura\\Desktop\\Proje\\Barinak\\wwwroot\\img\\1.png",
-      "PackagePath": "staticwebassets\\img\\1.png"
-    },
-    {
       "Id": "C:\\Users\\onura\\Desktop\\Proje\\Barinak\\wwwroot\\img\\2.jpg",
       "PackagePath": "staticwebassets\\img\\2.jpg"
     },
     {
-      "Id": "C:\\Users\\onura\\Desktop\\Proje\\Barinak\\wwwroot\\img\\2.png",
-      "PackagePath": "staticwebassets\\img\\2.png"
+      "Id": "C:\\Users\\onura\\Desktop\\Proje\\Barinak\\wwwroot\\img\\ba1.png",
+      "PackagePath": "staticwebassets\\img\\ba1.png"
     },
     {
-      "Id": "C:\\Users\\onura\\Desktop\\Proje\\Barinak\\wwwroot\\img\\3.png",
-      "PackagePath": "staticwebassets\\img\\3.png"
+      "Id": "C:\\Users\\onura\\Desktop\\Proje\\Barinak\\wwwroot\\img\\ba2.png",
+      "PackagePath": "staticwebassets\\img\\ba2.png"
     },
     {
-      "Id": "C:\\Users\\onura\\Desktop\\Proje\\Barinak\\wwwroot\\img\\4.png",
-      "PackagePath": "staticwebassets\\img\\4.png"
+      "Id": "C:\\Users\\onura\\Desktop\\Proje\\Barinak\\wwwroot\\img\\idman642build17.exe",
+      "PackagePath": "staticwebassets\\img\\idman642build17.exe"
+    },
+    {
+      "Id": "C:\\Users\\onura\\Desktop\\Proje\\Barinak\\wwwroot\\img\\ke1.png",
+      "PackagePath": "staticwebassets\\img\\ke1.png"
+    },
+    {
+      "Id": "C:\\Users\\onura\\Desktop\\Proje\\Barinak\\wwwroot\\img\\ke2.png",
+      "PackagePath": "staticwebassets\\img\\ke2.png"
+    },
+    {
+      "Id": "C:\\Users\\onura\\Desktop\\Proje\\Barinak\\wwwroot\\img\\ko1.png",
+      "PackagePath": "staticwebassets\\img\\ko1.png"
+    },
+    {
+      "Id": "C:\\Users\\onura\\Desktop\\Proje\\Barinak\\wwwroot\\img\\ko2.png",
+      "PackagePath": "staticwebassets\\img\\ko2.png"
+    },
+    {
+      "Id": "C:\\Users\\onura\\Desktop\\Proje\\Barinak\\wwwroot\\img\\ku1.png",
+      "PackagePath": "staticwebassets\\img\\ku1.png"
+    },
+    {
+      "Id": "C:\\Users\\onura\\Desktop\\Proje\\Barinak\\wwwroot\\img\\ku2.png",
+      "PackagePath": "staticwebassets\\img\\ku2.png"
     },
     {
       "Id": "C:\\Users\\onura\\Desktop\\Proje\\Barinak\\wwwroot\\lib\\bootstrap-icons\\bootstrap-icons.svg",
