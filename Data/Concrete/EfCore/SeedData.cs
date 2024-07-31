@@ -31,8 +31,8 @@ namespace Barinak.Data.Concrete.EfCore
                 if (!context.Users.Any())
                 {
                     context.Users.AddRange(
-                        new User { UserName = "onuraydinoglu", Image = "1.jpg" },
-                        new User { UserName = "nisanurışık", Image = "2.jpg" }
+                        new User { UserName = "onuraydinoglu", Name = "Onur AYDINOGLU", Email = "info@onur.com", Password = "123456", Image = "1.jpg" },
+                        new User { UserName = "nisanurışık", Name = "Nisa AYDINOGLU", Email = "info@nisa.com", Password = "123456", Image = "2.jpg" }
                     );
                     context.SaveChanges();
                 }
