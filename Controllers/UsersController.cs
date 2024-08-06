@@ -1,5 +1,6 @@
 using System.Security.Claims;
 using Barinak.Data.Abstract;
+using Barinak.Entity;
 using Barinak.Models;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
@@ -25,11 +26,6 @@ namespace Barinak.Controllers
                 return RedirectToAction("index", "Animals");
             }
             return View();
-        }
-        public async Task<IActionResult> Logout()
-        {
-            await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
-            return RedirectToAction("Login");
         }
 
         [HttpPost]
@@ -68,6 +64,66 @@ namespace Barinak.Controllers
                 }
             }
             return View(model);
+        }
+
+
+
+        public IActionResult Register()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Register(RegisterViewModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                var user = await _userRepository.Users.FirstOrDefaultAsync(x => x.UserName == model.UserName || x.Email == model.Email);
+                if (user == null)
+                {
+                    _userRepository.CreateUser(
+                        new User
+                        {
+                            UserName = model.UserName,
+                            Name = model.Name,
+                            Email = model.Email,
+                            Password = model.Password
+                        });
+                    return RedirectToAction("Login");
+                }
+                else
+                {
+                    ModelState.AddModelError("", "UserName ya da Email kullanımda");
+                }
+            }
+            return View(model);
+        }
+
+
+        public async Task<IActionResult> Logout()
+        {
+            await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
+            return RedirectToAction("Login");
+        }
+
+        public IActionResult Profile(string username)
+        {
+            if (string.IsNullOrEmpty(username))
+            {
+                return NotFound();
+            }
+
+            var user = _userRepository.Users
+            .Include(x => x.Animals)
+            .Include(x => x.Comments)
+            .ThenInclude(x => x.Animal)
+            .FirstOrDefault(x => x.UserName == username);
+
+            if (user == null)
+            {
+                return NotFound();
+            }
+            return View(user);
         }
     }
 }

@@ -30,7 +30,7 @@
                         <a class="nav-link" href="/animals">Animals</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/about">About</a>
+                        <a class="nav-link" asp-controller="Animals" asp-action="Create">Create</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="/contact">Contact</a>
@@ -40,7 +40,7 @@
                     @if (User.Identity!.IsAuthenticated)
                     {
                         <li class="nav-item">
-                            <a class="nav-link" href="#">@User.Identity.Name</a>
+                            <a class="nav-link" href="/animals/list">Animal List</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" asp-controller="Users" asp-action="Logout">Logout</a>
@@ -51,7 +51,6 @@
                         <li class="nav-item">
                             <a class="nav-link" href="#"><i class="bi bi-search"></i></a>
                         </li>
-
                         <li class="nav-item">
                             <a class="nav-link" asp-controller="Users" asp-action="Login">Login</a>
                         </li>

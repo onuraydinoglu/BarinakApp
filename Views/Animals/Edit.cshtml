@@ -1,0 +1,49 @@
+@model AnimalCreateViewModel
+
+<div class="row mt-4">
+    <div class="col-12">
+        <div class="bg-white p-4">
+            <h1>Animal Edit</h1>
+            <form asp-controller="Animals" asp-action="Edit" method="post">
+                <input type="hidden" asp-for="AnimalId">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="mb-3">
+                    <label asp-for="AnimalName" class="form-label"></label>
+                    <input asp-for="AnimalName" class="form-control">
+                </div>
+                <div class="mb-3">
+                    <label asp-for="Age" class="form-label"></label>
+                    <input asp-for="Age" class="form-control">
+                </div>
+                <div class="mb-3">
+                    <label asp-for="Url" class="form-label"></label>
+                    <input asp-for="Url" class="form-control">
+                </div>
+                using System.Security.Claims;
+                using System.Security.Claims;
+                <div class="mb-3">
+                    <label asp-for="Content" class="form-label"></label>
+                    <input asp-for="Content" class="form-control">
+                </div>
+                @if (User.FindFirstValue(ClaimTypes.Role) == "admin")
+                {
+                    <div class="form-check m3">
+                        <input asp-for="IsActive" class="form-check-input">
+                        <label asp-for="IsActive" class="form-check-label"></label>
+                    </div>
+                }
+                <button type="submit" class="btn btn-primary">Create</button>
+
+            </form>
+        </div>
+    </div>
+</div>
+
+@section Script {
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tinymce/7.2.1/tinymce.min.js"></script>
+    <script>
+        tinymce.init({
+            selector: '#Content'
+        });
+    </script>
+}

@@ -6,6 +6,7 @@ using Barinak.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System.Security.Claims;
+using Microsoft.AspNetCore.Authorization;
 
 
 namespace Barinak.Controllers
@@ -23,7 +24,7 @@ namespace Barinak.Controllers
 
         public async Task<IActionResult> Index(string breed)
         {
-            IQueryable<Animal> animals = _animalRepository.Animals.Include(a => a.Breeds);
+            var animals = _animalRepository.Animals.Where(i => i.IsActive);
 
             if (!string.IsNullOrEmpty(breed))
             {
@@ -33,9 +34,9 @@ namespace Barinak.Controllers
             return View(new AnimalViewModel { Animals = await animals.ToListAsync() });
         }
 
-        public IActionResult Details(string url)
+        public async Task<IActionResult> Details(string url)
         {
-            return View(_animalRepository.Animals.Include(x => x.Breeds).Include(x => x.Comments).ThenInclude(x => x.User).FirstOrDefault(p => p.Url == url));
+            return View(await _animalRepository.Animals.Include(x => x.User).Include(x => x.Breeds).Include(x => x.Comments).ThenInclude(x => x.User).FirstOrDefaultAsync(p => p.Url == url));
         }
 
         [HttpPost]
@@ -60,6 +61,105 @@ namespace Barinak.Controllers
                 entity.PublishedOn,
                 avatar
             });
+        }
+
+        [Authorize]
+        public IActionResult Create()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        [Authorize]
+        public IActionResult Create(AnimalCreateViewModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+                _animalRepository.CreateAnimal(
+                    new Animal
+                    {
+                        AnimalName = model.AnimalName,
+                        Content = model.Content,
+                        Age = model.Age,
+                        Url = model.Url,
+                        UserId = int.Parse(userId ?? ""),
+                        Image = "ko1.png",
+                        IsActive = false
+                    }
+                );
+                return RedirectToAction("Index");
+            }
+            return View();
+        }
+
+        [Authorize]
+        public async Task<IActionResult> List()
+        {
+            var userId = int.Parse(User.FindFirstValue(ClaimTypes.NameIdentifier) ?? "");
+            var role = User.FindFirstValue(ClaimTypes.Role);
+
+            var animals = _animalRepository.Animals;
+
+            if (string.IsNullOrEmpty(role))
+            {
+                animals = animals.Where(i => i.UserId == userId);
+            }
+
+            return View(await animals.ToListAsync());
+        }
+
+        [Authorize]
+        public IActionResult Edit(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var animal = _animalRepository.Animals.FirstOrDefault(i => i.AnimalId == id);
+
+            if (animal == null)
+            {
+                return NotFound();
+            }
+
+            return View(
+                new AnimalCreateViewModel
+                {
+                    AnimalId = animal.AnimalId,
+                    AnimalName = animal.AnimalName,
+                    Content = animal.Content,
+                    Age = animal.Age,
+                    Url = animal.Url,
+                    IsActive = animal.IsActive
+                });
+        }
+
+        [HttpPost]
+        [Authorize]
+        public IActionResult Edit(AnimalCreateViewModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                var entityUpdate = new Animal
+                {
+                    AnimalId = model.AnimalId,
+                    AnimalName = model.AnimalName,
+                    Content = model.Content,
+                    Age = model.Age,
+                    Url = model.Url,
+                    IsActive = model.IsActive
+                };
+
+                if (User.FindFirstValue(ClaimTypes.Role) == "admin")
+                {
+                    entityUpdate.IsActive = model.IsActive;
+                }
+                _animalRepository.EditAnimal(entityUpdate);
+                return RedirectToAction("List");
+            }
+            return View(model);
         }
     }
 }

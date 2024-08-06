@@ -11,7 +11,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Barinak.Migrations
 {
     [DbContext(typeof(BarinakContext))]
-    [Migration("20240727093258_InitialCreate")]
+    [Migration("20240806073751_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />
@@ -125,7 +125,16 @@ namespace Barinak.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
+                    b.Property<string>("Email")
+                        .HasColumnType("TEXT");
+
                     b.Property<string>("Image")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Password")
                         .HasColumnType("TEXT");
 
                     b.Property<string>("UserName")
@@ -164,7 +173,7 @@ namespace Barinak.Migrations
 
             modelBuilder.Entity("Barinak.Entity.Comment", b =>
                 {
-                    b.HasOne("Barinak.Entity.Animal", "Animals")
+                    b.HasOne("Barinak.Entity.Animal", "Animal")
                         .WithMany("Comments")
                         .HasForeignKey("AnimalId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -176,7 +185,7 @@ namespace Barinak.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("Animals");
+                    b.Navigation("Animal");
 
                     b.Navigation("User");
                 });

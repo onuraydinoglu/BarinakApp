@@ -17,15 +17,19 @@
                     <div class="col-md-8 d-flex flex-column">
                         <div class="card-body flex-grow-1">
                             <h5 class="card-title">@Model.AnimalName</h5>
-                            <p class="card-text">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Asperiores
-                                saepe sequi consequatur iure et quis facilis porro, rerum totam optio autem dolorem
-                                velit odit aperiam aut soluta! Quasi, repellat tempore?</p>
+                            <p class="card-text">@Html.Raw(@Model.Content)</p>
                             <p>
                                 Irkı: Golden
                             </p>
                             <p>
                                 Yaşı: @Model.Age
                             </p>
+                            <p>
+                                <i class="bi bi-person-circle">
+                                    <a href="/profile/@Model.User.UserName">@Model.User.Name</a>
+                                </i>
+                            </p>
+
                         </div>
                         <div class="d-flex justify-content-end mt-auto" style="margin-right: 10px;">
                             @foreach (var breed in Model.Breeds)
@@ -58,7 +62,9 @@
                                     <img src="/img/@comment.User.Image" alt=""
                                         class="avatar rounded-circle float-start me-3">
                                     <div class="flex-grow-1">
-                                        <h6>@comment.User.UserName</h6>
+                                        <a href="/profile/@comment.User.UserName">
+                                            <h6>@comment.User.UserName</h6>
+                                        </a>
                                         <p>@comment.Text</p>
                                     </div>
                                     <div class="text-end">
@@ -115,17 +121,17 @@
                         var date = new Date(yorum.publishedOn);
 
                         $("#comment").append(`
-                                                                <div class="my-4 d-flex align-items-center">
-                                                                    <img src="/img/${yorum.avatar}" alt="" class="avatar rounded-circle float-start me-3">
-                                                                    <div class="flex-grow-1">
-                                                                        <h6>${yorum.username}</h6>
-                                                                        <p>${yorum.text}</p>
-                                                                    </div>
-                                                                    <div class="text-end">
-                                                                        <span>${date.toLocaleDateString()}</span>
-                                                                    </div>
-                                                                </div>
-                                                            `);
+                                                                                                                                <div class="my-4 d-flex align-items-center">
+                                                                                                                                    <img src="/img/${yorum.avatar}" alt="" class="avatar rounded-circle float-start me-3">
+                                                                                                                                    <div class="flex-grow-1">
+                                                                                                                                        <h6>${yorum.username}</h6>
+                                                                                                                                        <p>${yorum.text}</p>
+                                                                                                                                    </div>
+                                                                                                                                    <div class="text-end">
+                                                                                                                                        <span>${date.toLocaleDateString()}</span>
+                                                                                                                                    </div>
+                                                                                                                                </div>
+                                                                                                                            `);
 
                         $("#UserName").val('');
                         $("#Text").val('');

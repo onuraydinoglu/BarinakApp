@@ -16,7 +16,10 @@ builder.Services.AddScoped<IBreedRepository, EfBreedRepository>();
 builder.Services.AddScoped<ICommentRepository, EfCommentRepository>();
 builder.Services.AddScoped<IUserRepository, EfUserRepository>();
 
-builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme).AddCookie();
+builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme).AddCookie(options =>
+{
+    options.LoginPath = "/Users/Login";
+});
 
 var app = builder.Build();
 
@@ -38,6 +41,12 @@ app.MapControllerRoute(
     name: "breeds_list",
     pattern: "animals/breed/{breed}",
     defaults: new { controller = "Animals", action = "Index" }
+);
+
+app.MapControllerRoute(
+    name: "user_profile",
+    pattern: "profile/{username}",
+    defaults: new { controller = "Users", action = "Profile" }
 );
 
 app.MapControllerRoute(

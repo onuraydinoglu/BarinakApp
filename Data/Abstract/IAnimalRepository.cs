@@ -6,6 +6,7 @@ namespace Barinak.Data.Abstract
     {
         IQueryable<Animal> Animals { get; }
         void CreateAnimal(Animal animal);
+        void EditAnimal(Animal animal);
 
     }
 }

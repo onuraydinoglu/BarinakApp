@@ -9,7 +9,7 @@ namespace Barinak.Entity
         public string? Text { get; set; }
         public DateTime PublishedOn { get; set; }
         public int AnimalId { get; set; }
-        public Animal Animals { get; set; } = null!;
+        public Animal Animal { get; set; } = null!;
         public int UserId { get; set; }
         public User User { get; set; } = null!;
     }

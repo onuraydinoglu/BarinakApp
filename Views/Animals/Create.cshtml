@@ -1,0 +1,39 @@
+@model AnimalCreateViewModel
+
+<div class="row mt-4">
+    <div class="col-12">
+        <div class="bg-white p-4">
+
+            <h1>Animal Create</h1>
+            <form asp-controller="Animals" asp-action="Create" method="post">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="mb-3">
+                    <label asp-for="AnimalName" class="form-label"></label>
+                    <input asp-for="AnimalName" class="form-control">
+                </div>
+                <div class="mb-3">
+                    <label asp-for="Age" class="form-label"></label>
+                    <input asp-for="Age" class="form-control">
+                </div>
+                <div class="mb-3">
+                    <label asp-for="Url" class="form-label"></label>
+                    <input asp-for="Url" class="form-control">
+                </div>
+                <div class="mb-3">
+                    <label asp-for="Content" class="form-label"></label>
+                    <input asp-for="Content" class="form-control">
+                </div>
+                <button type="submit" class="btn btn-primary">Creates</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+@section Script {
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tinymce/7.2.1/tinymce.min.js"></script>
+    <script>
+        tinymce.init({
+            selector: '#Content'
+        });
+    </script>
+}

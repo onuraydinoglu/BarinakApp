@@ -1,0 +1,41 @@
+@model List<Animal>
+
+<div class="row mt-4">
+    <div class="col-12">
+        <div class="bg-white p-4">
+            <h2>Animal List</h2>
+            <a href="/animals/create" class="btn btn-primary">New Animal</a>
+            <hr>
+            <table class="table table*bordered">
+                <thead>
+                    <tr>
+                        <th style="width: 125px;">Image</th>
+                        <th>Name</th>
+                        <th>Content</th>
+                        <th>Age</th>
+                        <th>IsActive</th>
+                        <th style="width: 150px;">Settings</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td><img src="~/img/@item.Image" class="img-fluid" alt=""></td>
+                            <td>@item.AnimalName</td>
+                            <td>@Html.Raw(@item.Content)</td>
+                            <td>@item.Age</td>
+                            <td>@item.IsActive</td>
+                            <td>
+                                <a href="/animals/edit/@item.AnimalId" class="btn btn-warning">Edit</a>
+                                <a href="#" class="btn btn-danger">Delete</a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+
+
+        </div>
+    </div>
+</div>

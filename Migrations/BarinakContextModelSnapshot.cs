@@ -170,7 +170,7 @@ namespace Barinak.Migrations
 
             modelBuilder.Entity("Barinak.Entity.Comment", b =>
                 {
-                    b.HasOne("Barinak.Entity.Animal", "Animals")
+                    b.HasOne("Barinak.Entity.Animal", "Animal")
                         .WithMany("Comments")
                         .HasForeignKey("AnimalId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -182,7 +182,7 @@ namespace Barinak.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("Animals");
+                    b.Navigation("Animal");
 
                     b.Navigation("User");
                 });
