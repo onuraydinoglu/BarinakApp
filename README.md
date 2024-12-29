@@ -1,84 +1,84 @@
-# Animal Shelter Management System (Barınak-App)
+# Hayvan Barınağı Yönetim Sistemi (Barınak-App)
 
-## Project Overview
-This project is a web application designed to manage the operations of an animal shelter, including the registration and adoption processes for animals. The application supports both admin and regular user roles, with comprehensive features for animal management and user interactions.
+## Proje Özeti
+Bu proje, hayvan barınaklarının operasyonlarını, özellikle hayvan kaydı ve sahiplendirme süreçlerini dijital ortamda yönetmek için tasarlanmış bir web uygulamasıdır. Uygulama, yönetici ve normal kullanıcı rolleri arasında destek sunar ve hayvan yönetimi ile kullanıcı etkileşimleri için kapsamlı özellikler içerir.
 
-## Project Goals
-The application aims to digitize and streamline the management of an animal shelter by providing functionalities such as:
-- Animal registration and management
-- User account management
-- Adding comments about animals
-- Filtering animals by species
-- Role-based access for admins and regular users
+## Projenin Amacı
+Uygulamanın amacı, bir hayvan barınağındaki yönetim süreçlerini dijitalleştirerek şu işlevleri sunmaktır:
+- Hayvan kaydı ve yönetimi
+- Kullanıcı hesap yönetimi
+- Hayvanlar hakkında yorum yapabilme
+- Hayvanları türlerine göre filtreleme
+- Yönetici ve normal kullanıcı rolleri için yetkilendirme
 
-## Technologies Used
+## Kullanılan Teknolojiler
 
 ### Backend Framework:
 - **ASP.NET Core MVC**
 - **Entity Framework Core** (ORM)
 
-### Architectural and Design Patterns:
+### Mimari ve Tasarım Desenleri:
 - **Repository Pattern**
 - **Dependency Injection**
-- **MVC (Model-View-Controller)** architecture
+- **MVC (Model-View-Controller)** mimarisi
 
-### Security:
-- **Cookie-based authentication**
-- **Role-based authorization**
+### Güvenlik:
+- **Cookie tabanlı kimlik doğrulama**
+- **Rol tabanlı yetkilendirme**
 - **Claims-based authentication**
 
-## Project Structure
+## Proje Yapısı
 
 ### Controllers:
-- **AnimalsController**: Manages animal-related operations
-- **UsersController**: Handles user operations (registration, login, profile management)
+- **AnimalsController**: Hayvanlarla ilgili işlemleri yönetir
+- **UsersController**: Kullanıcı işlemlerini (kayıt, giriş, profil yönetimi) yönetir
 
-### Models:
-- **View Models**:
-  - `AnimalViewModel`: For displaying animal lists
-  - `AnimalCreateViewModel`: For creating/editing animals
-  - `LoginViewModel`: For user login operations
-  - `RegisterViewModel`: For user registration operations
-- **Entities**:
-  - `Animal`: Represents animal details
-  - `User`: Represents user information
-  - `Breed`: Represents animal species
-  - `Comment`: Represents user comments on animals
+### Modeller:
+- **View Modelleri**:
+  - `AnimalViewModel`: Hayvan listelerini görüntüleme
+  - `AnimalCreateViewModel`: Hayvan oluşturma/düzenleme
+  - `LoginViewModel`: Kullanıcı giriş işlemleri
+  - `RegisterViewModel`: Kullanıcı kayıt işlemleri
+- **Entity Modelleri**:
+  - `Animal`: Hayvan bilgilerini temsil eder
+  - `User`: Kullanıcı bilgilerini temsil eder
+  - `Breed`: Hayvan türlerini temsil eder
+  - `Comment`: Hayvanlar hakkında yapılan yorumları temsil eder
 
 ### Repository Pattern:
-- **Interfaces**:
-  - `IAnimalRepository`, `IUserRepository`, etc.
-- **Implementations**:
-  - `EfAnimalRepository`, `EfUserRepository`, etc.
+- **Interface'ler**:
+  - `IAnimalRepository`, `IUserRepository` vb.
+- **Implementasyonlar**:
+  - `EfAnimalRepository`, `EfUserRepository` vb.
 
-## Key Features
+## Temel Özellikler
 
-### User Management:
-- Registration
-- Login
-- Profile viewing
-- Differentiation between admin and regular users
+### Kullanıcı Yönetimi:
+- Kayıt olma
+- Giriş yapma
+- Profil görüntüleme
+- Yönetici ve normal kullanıcı ayrımı
 
-### Animal Management:
-- Adding new animals
-- Editing animal details
-- Listing animals
-- Filtering animals by species
+### Hayvan Yönetimi:
+- Yeni hayvan ekleme
+- Hayvan bilgilerini düzenleme
+- Hayvanları listeleme
+- Türlere göre filtreleme
 
-### Interaction:
-- Adding comments about animals
-- Viewing detailed information about animals
+### Etkileşim:
+- Hayvanlar hakkında yorum ekleme
+- Hayvan detaylarını görüntüleme
 
-### Security:
-- Authorization checks
-- Role-based access control
-- Secure password management
+### Güvenlik:
+- Yetkilendirme kontrolleri
+- Rol bazlı erişim yönetimi
+- Güvenli şifre yönetimi
 
-## Database Relationships:
-- A user can manage multiple animals
-- An animal can have multiple species
-- An animal can have multiple comments
-- Each comment is associated with a user and an animal
+## Veritabanı İlişkileri:
+- Bir kullanıcı birden fazla hayvan yönetebilir
+- Bir hayvan birden fazla türe sahip olabilir
+- Bir hayvan hakkında birden fazla yorum yapılabilir
+- Her yorum bir kullanıcı ve bir hayvan ile ilişkilidir
 
-## Summary
-This web application provides a comprehensive animal shelter management system leveraging modern web technologies. Built with **ASP.NET Core MVC** and **Entity Framework Core**, it follows Clean Architecture principles to ensure a secure and scalable structure. Security features include cookie-based authentication and role-based authorization, while code reusability is achieved through the use of view components.
+## Özet
+Bu web uygulaması, modern web teknolojilerini kullanarak kapsamlı bir hayvan barınağı yönetim sistemi sunmaktadır. **ASP.NET Core MVC** ve **Entity Framework Core** kullanılarak geliştirilmiştir ve Clean Architecture prensiplerini takip eden güvenli ve ölçeklenebilir bir yapıya sahiptir. Güvenlik özellikleri arasında cookie tabanlı kimlik doğrulama ve rol tabanlı yetkilendirme bulunur. Kod tekrarını önlemek için view componentler kullanılmıştır.
